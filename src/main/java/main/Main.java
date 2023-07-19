@@ -6,8 +6,12 @@ public class Main {
     public static void main(String[] args) {
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
 
-        Parrot p = context.getBean(Parrot.class);
+        Parrot p = context.getBean("Miki", Parrot.class);
         System.out.println(p.getName());
+
+        //Primary bean
+        Parrot p2 = context.getBean(Parrot.class);
+        System.out.println(p2.getName());
 
         int n = context.getBean(Integer.class);
         System.out.println(n);
